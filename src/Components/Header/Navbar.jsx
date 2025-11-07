@@ -115,6 +115,20 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end flex gap-3">
+        <div className="relative flex flex-col items-center mr-3.5 group">
+          {user && (
+            <>
+              <img
+                className="h-10 w-10 rounded-full border-2 border-[#9F62F2] group-hover:scale-105 transition-transform duration-200"
+                src={user?.photoURL}
+                alt="Profile Picture"
+              />
+              {/* <span className="absolute bottom-[-35px] px-3 py-1 text-[10px] text-white bg-gray-800 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {user?.displayName}
+              </span> */}
+            </>
+          )}
+        </div>
         {user ? (
           <a
             onClick={handleSingOut}
