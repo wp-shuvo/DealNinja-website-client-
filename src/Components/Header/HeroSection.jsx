@@ -19,7 +19,7 @@ const HeroSection = () => {
       />
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
         Deal Your{' '}
-        <span className="bg-gradient-to-r fnpm rundrom-[#632EE3] to-[#9F62F2] text-transparent bg-clip-text">
+        <span className="bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-transparent bg-clip-text">
           Products
         </span>{' '}
         <br className="hidden sm:block" />

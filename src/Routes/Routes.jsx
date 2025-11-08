@@ -10,6 +10,7 @@ import Login from '../Components/LogIn_Out/Login';
 import Register from '../Components/LogIn_Out/Register';
 import MyBids from '../Pages/MyBids';
 import PrivateRoutes from './PrivateRoutes';
+import ProductDetails from '../Components/Products/ProductDetails';
 
 const Routes = createBrowserRouter([
   {
@@ -17,21 +18,15 @@ const Routes = createBrowserRouter([
     element: <MainLayouts />,
     errorElement: <ErrorPage />,
     hydrateFallbackElement: (
-      <div className=" w-full h-full flex justify-center mt-2.5 ">
+      <div className="w-full h-full flex justify-center mt-2.5">
         <span className="loading loading-dots content-center loading-xl"></span>
       </div>
     ),
     children: [
+      { index: true, element: <Home /> },
+      { path: 'allproducts', element: <AllProducts /> },
       {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: '/allproducts',
-        element: <AllProducts />,
-      },
-      {
-        path: '/myproducts',
+        path: 'myproducts',
         element: (
           <PrivateRoutes>
             <MyProducts />
@@ -39,7 +34,7 @@ const Routes = createBrowserRouter([
         ),
       },
       {
-        path: '/mybids',
+        path: 'mybids',
         element: (
           <PrivateRoutes>
             <MyBids />
@@ -47,7 +42,7 @@ const Routes = createBrowserRouter([
         ),
       },
       {
-        path: '/createproduct',
+        path: 'createproduct',
         element: (
           <PrivateRoutes>
             <CreateProduct />
@@ -55,12 +50,18 @@ const Routes = createBrowserRouter([
         ),
       },
       {
-        path: '/login',
+        path: 'login',
         element: <Login />,
       },
       {
-        path: '/register',
+        path: 'register',
         element: <Register />,
+      },
+      {
+        path: 'productdetails/:id',
+        loader: ({ params }) =>
+          fetch(`http://localhost:5001/products/${params.id}`),
+        element: <ProductDetails />,
       },
     ],
   },
