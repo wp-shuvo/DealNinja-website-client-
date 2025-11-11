@@ -8,7 +8,11 @@ const MyBids = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:5001/bids?email=${user.email}`)
+      fetch(`http://localhost:5001/bids?email=${user.email}`, {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      })
         .then(res => res.json())
         .then(data => {
           console.log('data from myBids', data);
@@ -16,7 +20,7 @@ const MyBids = () => {
         })
         .catch(error => console.log(error.message));
     }
-  }, [user?.email]);
+  }, [user]);
 
   const handleDeleteBid = _id => {
     // console.log('clicked');

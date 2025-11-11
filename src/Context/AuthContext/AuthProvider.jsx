@@ -36,11 +36,13 @@ const AuthProvider = ({ children }) => {
     setloading(true);
     return signInWithPopup(auth, googleProvider);
   };
+
   // SingOut or LogOut user
   const singOutUser = () => {
     setloading(true);
     return signOut(auth);
   };
+
   //Get Current User Info
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
