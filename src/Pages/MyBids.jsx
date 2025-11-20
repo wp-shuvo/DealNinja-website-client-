@@ -23,7 +23,6 @@ const MyBids = () => {
   }, [user]);
 
   const handleDeleteBid = _id => {
-    // console.log('clicked');
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -89,20 +88,25 @@ const MyBids = () => {
                       <div className="avatar">
                         <div className="mask mask-squircle h-12 w-12">
                           <img
-                            src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+                            src={bid.product_image}
                             alt="Avatar Tailwind CSS Component"
                           />
                         </div>
                       </div>
                       <div>
-                        <div className="font-bold">Hart Hagerty</div>
-                        <div className="text-sm opacity-50">United States</div>
+                        <div className="font-bold">{bid.productTitle}</div>
+                        <div className="text-sm opacity-50">
+                          {bid.product_category}
+                        </div>
                       </div>
                     </div>
                   </td>
                 </td>
                 <td>
-                  <div className="font-bold">{bid.buyer_email}</div>
+                  <div>
+                    <div class="font-bold">{bid.seller_name}</div>
+                    <div class="text-sm opacity-50">{bid.sellerEmail}</div>
+                  </div>
                 </td>
                 <td>
                   <div className="font-bold">$ {bid.bid}</div>

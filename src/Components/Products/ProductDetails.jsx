@@ -9,10 +9,10 @@ const ProductDetails = () => {
   console.log('product data ', product);
 
   const {
-    title,
+    title: productTitle,
     price_min,
     price_max,
-    email,
+    email: sellerEmail,
     category,
     created_at,
     image,
@@ -62,6 +62,12 @@ const ProductDetails = () => {
       buyer_email: email,
       buyer_image: user?.photoURL,
       bid: bid,
+      seller_image,
+      seller_name,
+      productTitle,
+      sellerEmail,
+      product_image: image,
+      product_category: category,
       status: 'pending',
     };
 
@@ -108,14 +114,16 @@ const ProductDetails = () => {
           <div className="bg-white rounded-2xl p-4 flex items-center justify-center shadow-sm">
             <img
               src={image}
-              alt={title}
+              alt={productTitle}
               className="w-full max-h-[400px] object-cover rounded-xl"
             />
           </div>
 
           {/* Right - Info */}
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">{title}</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              {productTitle}
+            </h1>
 
             {/* Category */}
             <span className="inline-block text-xs bg-purple-100 text-purple-700 font-medium px-3 py-1 rounded-full mb-3">
@@ -153,7 +161,7 @@ const ProductDetails = () => {
                 />
                 <div>
                   <p className="font-semibold text-gray-900">{seller_name}</p>
-                  <p className="text-sm text-gray-600">{email}</p>
+                  <p className="text-sm text-gray-600">{sellerEmail}</p>
                 </div>
               </div>
 

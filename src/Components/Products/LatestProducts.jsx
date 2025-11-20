@@ -1,5 +1,6 @@
 import React, { use } from 'react';
 import ProductCard from './ProductCard';
+import { Link } from 'react-router';
 
 const LatestProducts = ({ LatestProductsPromise }) => {
   const products = use(LatestProductsPromise);
@@ -13,10 +14,19 @@ const LatestProducts = ({ LatestProductsPromise }) => {
           Products{' '}
         </span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-6 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-auto gap-6 ">
         {products?.map(product => (
           <ProductCard key={product._id} product={product} />
         ))}
+      </div>
+
+      <div className="flex justify-center mt-8">
+        <Link
+          to="/allproducts"
+          className="bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-white font-semibold px-6 py-2 rounded-md hover:opacity-90 transition"
+        >
+          All Products
+        </Link>
       </div>
     </div>
   );

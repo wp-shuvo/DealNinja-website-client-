@@ -24,7 +24,10 @@ const Routes = createBrowserRouter([
     ),
     children: [
       { index: true, element: <Home /> },
-      { path: 'allproducts', element: <AllProducts /> },
+      {
+        path: 'allproducts',
+        element: <AllProducts />,
+      },
       {
         path: 'myproducts',
         element: (
